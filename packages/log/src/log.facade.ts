@@ -8,10 +8,12 @@ export class LogFacade implements ILogger {
   constructor() {
     this.loggers = {};
   }
-
-  error(error: any, message: string, meta?: any): void {
+  error(error: Error, message: string, meta?: any): void;
+  error(message: string, meta?: any): void;
+  error(error: any, message?: any, meta?: any) {
     return this.getChannel().error(error, message, meta);
   }
+
 
   warn(message: string, meta?: any): void {
     return this.getChannel().warn(message, meta);
@@ -27,12 +29,6 @@ export class LogFacade implements ILogger {
 
   debug(message: string, meta?: any): void {
     return this.getChannel().debug(message, meta);
-  }
-
-  async close(): Promise<void> {
-    for (const lgrKey in this.loggers) {
-      await this.loggers[lgrKey].close();
-    }
   }
 
   to(...channelNames: string[]): ILogger {
