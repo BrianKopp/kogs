@@ -21,5 +21,6 @@
     "reflect-metadata": "^0.1.13",
     "tsyringe": "^4.5.0",
     "winston": "^3.3.3"
-  }
+  },
+  "gitHead": "9faaf0d14283084151ba2aafb54b8706664bca57"
 }
