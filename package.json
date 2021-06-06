@@ -1,0 +1,11 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "lerna:bootstrap": "lerna bootstrap --ci",
+    "setup": "npm ci && lerna bootstrap --ci"
+  },
+  "devDependencies": {
+    "lerna": "^4.0.0"
+  }
+}
