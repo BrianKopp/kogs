@@ -16,5 +16,8 @@
   },
   "bugs": {
     "url": "https://github.com/briankopp/kogs/issues"
+  },
+  "dependencies": {
+    "winston": "^3.3.3"
   }
 }
