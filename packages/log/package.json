@@ -1,0 +1,25 @@
+{
+  "name": "@kogs/log",
+  "version": "0.0.0",
+  "description": "centralized logging backed by winston",
+  "author": "briankopp <briankopp.usa@gmail.com>",
+  "homepage": "https://github.com/briankopp/kogs#readme",
+  "license": "ISC",
+  "main": "dist/log.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/briankopp/kogs.git"
+  },
+  "scripts": {
+    "build": "tsc",
+    "test": "echo \"Error: run tests from root\" && exit 1"
+  },
+  "bugs": {
+    "url": "https://github.com/briankopp/kogs/issues"
+  },
+  "dependencies": {
+    "reflect-metadata": "^0.1.13",
+    "tsyringe": "^4.5.0",
+    "winston": "^3.3.3"
+  }
+}
