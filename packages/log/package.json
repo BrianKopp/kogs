@@ -19,7 +19,7 @@
   },
   "dependencies": {
     "reflect-metadata": "^0.1.13",
-    "typeorm": "^0.2.34",
+    "tsyringe": "^4.5.0",
     "winston": "^3.3.3"
   }
 }
