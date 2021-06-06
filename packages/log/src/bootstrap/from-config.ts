@@ -2,6 +2,7 @@ import { createLogger } from 'winston';
 import { LoggerConfig, ILogger } from '../types';
 import { registerLogger } from '../log.dependency';
 import { WinstonLogger, MultiLogger, winstonConfigFromPreset } from '../providers';
+import { logLevelScrubber } from '../utils';
 
 export const bootstrapFromConfig = (config: LoggerConfig): void => {
   const channelNames = Object.keys(config.channels);
@@ -11,7 +12,10 @@ export const bootstrapFromConfig = (config: LoggerConfig): void => {
     if (channelConfig.driver === 'winston-preset') {
       channelLoggers[channelName] = new WinstonLogger(createLogger(winstonConfigFromPreset(channelConfig)));
     } else if (channelConfig.driver === 'winston') {
-      channelLoggers[channelName] = new WinstonLogger(createLogger(channelConfig.winstonConfig));
+      channelLoggers[channelName] = new WinstonLogger(createLogger({
+        ...channelConfig.winstonConfig,
+        level: logLevelScrubber(channelConfig.winstonConfig.level),
+      }));
     } else {
       throw new Error('unrecognized logging driver');
     }
