@@ -6,7 +6,7 @@ export const bootstrapFromDefault = (): void => {
       'console': {
         driver: 'winston-preset',
         level: 'info',
-        presetFormat: 'json',
+        presetFormat: 'simple',
         sink: {
           type: 'console',
         },

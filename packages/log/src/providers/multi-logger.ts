@@ -3,7 +3,9 @@ import { ILogger } from '../types';
 export class MultiLogger implements ILogger {
   constructor(private loggers: ILogger[]) {}
 
-  error(error: any, message: string, meta?: any): void {
+  error(error: Error, message: string, meta?: any): void;
+  error(message: string, meta?: any): void;
+  error(error: any, message?: any|string, meta?: any) {
     for (const lgr of this.loggers) {
       lgr.error(error, message, meta);
     }
@@ -30,12 +32,6 @@ export class MultiLogger implements ILogger {
   debug(message: string, meta?: any): void {
     for (const lgr of this.loggers) {
       lgr.debug(message, meta);
-    }
-  }
-
-  async close(): Promise<void> {
-    for (const lgr of this.loggers) {
-      await lgr.close();
     }
   }
 }
