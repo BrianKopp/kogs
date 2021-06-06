@@ -1,5 +1,6 @@
 import { format, transports, LoggerOptions} from 'winston';
 import { PresetLoggerConfig } from '../types';
+import { logLevelScrubber } from '../utils';
 
 const formatMetadata = format.metadata({ fillExcept: ['message', 'level', 'timestamp', 'label']});
 
@@ -26,7 +27,7 @@ export const winstonConfigFromPreset = (config: PresetLoggerConfig): LoggerOptio
     formats.push(format.simple());
   }
   return {
-    level: config.level,
+    level: logLevelScrubber(config.level),
     format: format.combine(...formats),
     transports: lgrTransports,
   }
