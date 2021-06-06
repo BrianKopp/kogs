@@ -3,9 +3,22 @@
   "private": true,
   "scripts": {
     "lerna:bootstrap": "lerna bootstrap --ci",
+    "lint": "eslint packages --ext .ts",
+    "lint:fix": "eslint packages --ext .ts --fix",
     "setup": "npm ci && lerna bootstrap --ci"
   },
   "devDependencies": {
-    "lerna": "^4.0.0"
+    "@types/node": "^15.12.1",
+    "eslint": "^7.28.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-eslint-comments": "^3.2.0",
+    "eslint-plugin-functional": "^3.2.1",
+    "eslint-plugin-import": "^2.23.4",
+    "lerna": "^4.0.0",
+    "prettier": "^2.3.1",
+    "typescript": "^4.3.2"
+  },
+  "prettier": {
+    "singleQuote": true
   }
 }
